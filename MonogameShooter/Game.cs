@@ -29,10 +29,10 @@ namespace MonogameShooter
 
 #if ZUNE
         int BufferWidth = 272;
-        int BufferHeight = 480;
+        int BufferHeight = 600;
 #elif IPHONE
         int BufferWidth = 320;
-        int BufferHeight = 480;
+        int BufferHeight = 600;
 #else
         int BufferWidth = 800;
         int BufferHeight = 600;
@@ -51,8 +51,8 @@ namespace MonogameShooter
 
             graphics = new GraphicsDeviceManager(this);
 
-            graphics.PreferredBackBufferWidth = 800;
-            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferWidth = BufferWidth;
+            graphics.PreferredBackBufferHeight = BufferHeight;
 
             // Создаётся screen manager component.
             screenManager = new ScreenManager(this);

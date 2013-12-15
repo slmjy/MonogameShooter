@@ -218,7 +218,6 @@ namespace MonogameShooter
         {
             foreach (GameScreen screen in screens)
             {
-                if (screen.GetType().Name == "MessageBoxScreen") screen.ScreenState = ScreenState.Hidden;
                 if (screen.ScreenState == ScreenState.Hidden)
                     continue;
 
