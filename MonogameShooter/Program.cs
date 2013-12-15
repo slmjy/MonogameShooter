@@ -33,11 +33,11 @@ namespace MonogameShooter
 
 	class AppDelegate : NSApplicationDelegate
 	{
-		private GameStateManagementGame game;
+		private ShooterGame game;
 
 		public override void FinishedLaunching (MonoMac.Foundation.NSObject notification)
 		{
-			game = new GameStateManagementGame ();
+			game = new ShooterGame ();
 			game.Run();
 		}
 
@@ -50,11 +50,11 @@ namespace MonogameShooter
 	[Register("AppDelegate")]
 	class Program : UIApplicationDelegate
 	{
-		GameStateManagementGame game;
+		ShooterGame game;
 		public override void FinishedLaunching(UIApplication app)
 		{
 			// Fun begins..
-			game = new GameStateManagementGame();
+			game = new ShooterGame();
 			game.Run();
 		}
 
@@ -87,7 +87,7 @@ namespace MonogameShooter
 	{
 		public override void FinishedLaunching (MonoMac.Foundation.NSObject notification)
 		{
-			var game = new GameStateManagementGame();
+			var game = new ShooterGame();
 			game.Run();
 		}
 		
@@ -104,7 +104,7 @@ namespace MonogameShooter
 	{
 		static void Main()
 		{
-			using (GameStateManagementGame game = new GameStateManagementGame())
+			using (var game = new ShooterGame())
 			{
 				game.Run();
 			}

@@ -20,7 +20,7 @@ namespace MonogameShooter
     /// меню паузы и.т.д. Основной класс крайне прост, всё самое интересное происходит в
     /// ScreenManager component.
     /// </summary>
-    public class GameStateManagementGame : Game
+    public class ShooterGame : Game
     {
         #region Fields
 
@@ -45,7 +45,7 @@ namespace MonogameShooter
         /// <summary>
         /// Основной конструктор игры
         /// </summary>
-        public GameStateManagementGame()
+        public ShooterGame()
         {
             Content.RootDirectory = "Content";
 

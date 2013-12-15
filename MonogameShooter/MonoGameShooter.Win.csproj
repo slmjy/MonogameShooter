@@ -8,8 +8,8 @@
     <ProjectGuid>{A580295D-E0B4-4992-9C6B-1D81C27041CA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MonoGameShooter.Win</RootNamespace>
-    <AssemblyName>MonoGameShooter.Win</AssemblyName>
+    <RootNamespace>MonogameShooter</RootNamespace>
+    <AssemblyName>MonogameShooter</AssemblyName>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
