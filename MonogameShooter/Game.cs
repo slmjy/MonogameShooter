@@ -34,8 +34,8 @@ namespace MonogameShooter
         int BufferWidth = 320;
         int BufferHeight = 480;
 #else
-        int BufferWidth = 272;
-        int BufferHeight = 480;
+        int BufferWidth = 800;
+        int BufferHeight = 600;
 #endif
         #endregion
 
@@ -51,8 +51,8 @@ namespace MonogameShooter
 
             graphics = new GraphicsDeviceManager(this);
 
-            graphics.PreferredBackBufferWidth = BufferWidth;
-            graphics.PreferredBackBufferHeight = BufferHeight;
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 600;
 
             // Создаётся screen manager component.
             screenManager = new ScreenManager(this);

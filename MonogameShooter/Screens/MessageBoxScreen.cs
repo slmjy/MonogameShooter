@@ -58,9 +58,9 @@ namespace MonogameShooter
                                      "\nB button, Esc = cancel"; 
             
             if (includeUsageText)
-                this.message = message + usageText;
+                this.message = usageText;
             else
-                this.message = message;
+                this.message = "Lol";
 
             IsPopup = true;
 
@@ -138,7 +138,7 @@ namespace MonogameShooter
             // Center the message text in the viewport.
             Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
             Vector2 viewportSize = new Vector2(viewport.Width, viewport.Height);
-            Vector2 textSize = font.MeasureString(message);
+            Vector2 textSize = font.MeasureString("Lol");
             Vector2 textPosition = (viewportSize - textSize) / 2;
 
             // The background includes a border somewhat larger than the text itself.

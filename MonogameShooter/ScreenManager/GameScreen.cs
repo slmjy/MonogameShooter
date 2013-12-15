@@ -113,7 +113,7 @@ namespace MonogameShooter
         public ScreenState ScreenState
         {
             get { return screenState; }
-            protected set { screenState = value; }
+            public set { screenState = value; }
         }
 
         ScreenState screenState = ScreenState.TransitionOn;
