@@ -89,6 +89,10 @@
     <None Include="Content\blank.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Content\Fonts\gamefont.spritefont" />
+    <None Include="Content\Fonts\gamefont.xnb" />
+    <None Include="Content\Fonts\menufont.spritefont" />
+    <None Include="Content\Fonts\menufont.xnb" />
     <None Include="Content\gamefont.spritefont">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
