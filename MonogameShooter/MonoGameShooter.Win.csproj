@@ -104,28 +104,14 @@
     <None Include="Content\background.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Content\blank.xnb">
+    <Content Include="Content\Fonts\gamefont.spritefont">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\Fonts\gamefont.spritefont" />
+    </Content>
     <None Include="Content\Fonts\gamefont.xnb" />
     <None Include="Content\Fonts\menufont.spritefont" />
-    <None Include="Content\Fonts\menufont.xnb" />
-    <None Include="Content\gamefont.spritefont">
+    <Content Include="Content\Fonts\menufont.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\gamefont.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\gradient.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\menufont.spritefont">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\menufont.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
     <None Include="Content\Models\1.xnb" />
     <None Include="Content\Models\762.xnb" />
     <None Include="Content\Models\AK-47 - 11.xnb" />
@@ -143,7 +129,6 @@
     <None Include="Content\Models\TT-33.xnb" />
     <None Include="Content\Models\tt-vray.xnb" />
     <None Include="Content\Models\ТТ.xnb" />
-    <None Include="Content\shotgun.xnb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
