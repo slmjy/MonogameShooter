@@ -60,6 +60,7 @@ namespace MonogameShooter
             if (content == null)
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
 
+<<<<<<< HEAD
 
 
 
@@ -69,6 +70,9 @@ namespace MonogameShooter
 
 
             gameFont = content.Load<SpriteFont>("gamefont");
+=======
+            gameFont = content.Load<SpriteFont>("Fonts/gamefont");
+>>>>>>> e5e3baa50a4e16d735c90aaa19875c1aa083c0ba
 
             // A real game would probably have more content than this sample, so
             // it would take longer to load. We simulate that by delaying for a
