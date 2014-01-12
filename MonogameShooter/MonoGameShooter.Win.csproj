@@ -72,6 +72,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Content\2k.bmp" />
+    <Content Include="Content\3a.BMP" />
+    <Content Include="Content\6.BMP" />
     <Content Include="Content\background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -81,6 +84,20 @@
     <Content Include="Content\gradient.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Models\Guns\Unconverted\3.JPG" />
+    <Content Include="Content\Models\Guns\Unconverted\mod_09_r1.jpg" />
+    <Content Include="Content\Models\Guns\Unconverted\TT30_Bullet_v5.jpg" />
+    <Content Include="Content\Models\Guns\Unconverted\TT30_v5.jpg" />
+    <Content Include="Content\Models\Guns\Unconverted\TT33_Magazine.jpg" />
+    <Content Include="Content\Models\Guns\Unconverted\дерево-рукоятка.jpg" />
+    <Content Include="Content\Models\Guns\Unconverted\металл_основа.jpg" />
+    <Content Include="Content\Models\Guns\Unconverted\меттал_нож.jpg" />
+    <Content Include="Content\Models\Maps\Unconverted\LUhamhand.jpg" />
+    <Content Include="Content\Models\Maps\Unconverted\LUhamhandBUM.jpg" />
+    <Content Include="Content\Models\Maps\Unconverted\LUhamhead.jpg" />
+    <Content Include="Content\Models\Maps\Unconverted\LUhamheadBUM.jpg" />
+    <Content Include="Content\Models\Maps\Unconverted\LUhamspike.jpg" />
+    <Content Include="Content\Models\Maps\Unconverted\LUmet1.jpg" />
     <Content Include="SDL.dll" />
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +107,10 @@
     <None Include="Content\blank.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Content\Fonts\gamefont.spritefont" />
+    <None Include="Content\Fonts\gamefont.xnb" />
+    <None Include="Content\Fonts\menufont.spritefont" />
+    <None Include="Content\Fonts\menufont.xnb" />
     <None Include="Content\gamefont.spritefont">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -105,6 +126,24 @@
     <None Include="Content\menufont.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Content\Models\1.xnb" />
+    <None Include="Content\Models\762.xnb" />
+    <None Include="Content\Models\AK-47 - 11.xnb" />
+    <None Include="Content\Models\blank.xnb" />
+    <None Include="Content\Models\F1.xnb" />
+    <None Include="Content\Models\gradient.xnb" />
+    <None Include="Content\Models\Loft_Lights_Lrg.hdr" />
+    <None Include="Content\Models\Magazine.xnb" />
+    <None Include="Content\Models\Maps\Unconverted\DH101LL.hdr" />
+    <None Include="Content\Models\Maps\Unconverted\Thumbs.db" />
+    <None Include="Content\Models\rpg.xnb" />
+    <None Include="Content\Models\shotgun.xnb" />
+    <None Include="Content\Models\SVD.xnb" />
+    <None Include="Content\Models\TT-33-multi.xnb" />
+    <None Include="Content\Models\TT-33.xnb" />
+    <None Include="Content\Models\tt-vray.xnb" />
+    <None Include="Content\Models\ТТ.xnb" />
+    <None Include="Content\shotgun.xnb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
