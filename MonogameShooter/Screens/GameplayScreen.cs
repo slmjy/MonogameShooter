@@ -60,6 +60,14 @@ namespace MonogameShooter
             if (content == null)
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
 
+
+
+
+            Model Gun = content.Load<Model>("shotgun");
+
+
+
+
             gameFont = content.Load<SpriteFont>("gamefont");
 
             // A real game would probably have more content than this sample, so
