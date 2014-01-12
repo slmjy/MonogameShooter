@@ -29,16 +29,19 @@ namespace MonogameShooter
         {
             // Создает компоненты нашего меню.
             MenuEntry playGameMenuEntry = new MenuEntry("Play Game");
+            MenuEntry testMenuEntry = new MenuEntry("3D Test");
             MenuEntry optionsMenuEntry = new MenuEntry("Options");
             MenuEntry exitMenuEntry = new MenuEntry("Exit");
 
             // Подключаем обработчики событий меню.
             playGameMenuEntry.Selected += PlayGameMenuEntrySelected;
+            testMenuEntry.Selected += testMenuEntrySelected;
             optionsMenuEntry.Selected += OptionsMenuEntrySelected;
             exitMenuEntry.Selected += OnCancel;
 
             // Добавляет компоненты в меню.
             MenuEntries.Add(playGameMenuEntry);
+            MenuEntries.Add(testMenuEntry);
             MenuEntries.Add(optionsMenuEntry);
             MenuEntries.Add(exitMenuEntry);
         }
@@ -58,7 +61,13 @@ namespace MonogameShooter
                                new GameplayScreen());
         }
 
-
+        /// <summary>
+        /// Событие обработчика, если выбран компонент меню 3D тест.
+        /// <summary>
+        void testMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        {
+            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new Test3DScreen());
+        }
         /// <summary>
         /// Событие обработчика, если выбран компонент меню Опции.
         /// </summary>
