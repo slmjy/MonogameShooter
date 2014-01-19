@@ -11,6 +11,7 @@
 using Microsoft.Xna.Framework;
 using MonogameShooter.GameEngine;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 #endregion
 
 namespace MonogameShooter
@@ -68,7 +69,7 @@ namespace MonogameShooter
         /// <summary>
         void testMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
-            var player = new Player(Portrait, cm, HP, HPLeft, SP, SPLeft, Level, Name);
+            var player = new Player(null, new ContentManager(ScreenManager.Game.Services, "Content"),100,100,10,10,1,"TestPlayer");
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new HudScreen(ScreenManager,player));
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new Test3DScreen());
         }
@@ -108,14 +109,5 @@ namespace MonogameShooter
 
         #endregion
 
-        public Microsoft.Xna.Framework.Graphics.Texture2D HP { get; set; }
-
-        public Microsoft.Xna.Framework.Content.ContentManager SP { get; set; }
-
-        public object HPleft { get; set; }
-
-        public object Lifes { get; set; }
-
-        public object HPLeft { get; set; }
     }
 }
