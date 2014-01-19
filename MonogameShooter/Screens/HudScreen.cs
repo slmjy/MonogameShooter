@@ -83,7 +83,7 @@ namespace MonogameShooter
         /// <summary>
         /// СОздаем новый ХУД объект используя ScreenManager
         /// </summary>
-        public HudScreen(ScreenManager screenManager)
+        public HudScreen(ScreenManager screenManager, GameEngine Player)
         {
             // проверяем параметр
             if (screenManager == null)
