@@ -71,7 +71,7 @@ namespace MonogameShooter
 
             gameFont = content.Load<SpriteFont>("Fonts/gamefont");
 
-            model = content.Load<Model>("");
+            model = content.Load<Model>("Models/Guns/GUN");
 
             // A real game would probably have more content than this sample, so
             // it would take longer to load. We simulate that by delaying for a
@@ -125,17 +125,7 @@ namespace MonogameShooter
 
             //}
 
-            foreach (ModelMesh mesh in model.Meshes)
-            {
-                foreach (BasicEffect effect in mesh.Effects)
-                {
-                    effect.World = world;
-                    effect.View = view;
-                    effect.Projection = projection;
-                }
-
-                mesh.Draw();
-            }
+            
 
         }
 
@@ -207,24 +197,28 @@ namespace MonogameShooter
             ScreenManager.GraphicsDevice.Clear(ClearOptions.Target,
                                                Color.CornflowerBlue, 0, 0);
 
-            // Наш игрок и враг вместе всего лишь текстовые переменные
-            SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
+            //// Наш игрок и враг вместе всего лишь текстовые переменные
+            //SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
 
-            spriteBatch.Begin();
+            //spriteBatch.Begin();
 
-            //spriteBatch.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
+            ////spriteBatch.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
 
-            //spriteBatch.DrawString(gameFont, "Insert Gameplay Here",
-            //                       enemyPosition, Color.DarkRed);
+            ////spriteBatch.DrawString(gameFont, "Insert Gameplay Here",
+            ////                       enemyPosition, Color.DarkRed);
 
-            spriteBatch.End();
+            //spriteBatch.End();
 
-            /// Если игра включается или выключается, проявим ее из черного
-            if (TransitionPosition > 0 || pauseAlpha > 0)
+            foreach (ModelMesh mesh in model.Meshes)
             {
-                float alpha = MathHelper.Lerp(1f - TransitionAlpha, 1f, pauseAlpha / 2);
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.World = world;
+                    effect.View = view;
+                    effect.Projection = projection;
+                }
 
-                ScreenManager.FadeBackBufferToBlack(alpha);
+                mesh.Draw();
             }
         }
 
