@@ -15,9 +15,9 @@ namespace MonogameShooter.GameEngine
         public string Name;
         public Texture2D Portrait;
 
-        public DrawPortrait(Texture2D Portrait)
+        public void DrawPortrait(Texture2D Portrait)
         {
-            
+            Portrait = Content.Load<Texture2D>('portrait.png');
         }
     }
 }
