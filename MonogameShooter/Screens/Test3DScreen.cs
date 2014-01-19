@@ -34,6 +34,11 @@ namespace MonogameShooter
         Vector3 playerPosition = new Vector3(100, 100 ,100);
         Vector3 enemyPosition = new Vector3(100, 100, 100);
 
+
+        private Matrix world = Matrix.CreateTranslation(new Vector3(0, 0, 0));
+        private Matrix view = Matrix.CreateLookAt(new Vector3(0, 0, 10), new Vector3(0, 0, 0), Vector3.UnitY);
+        private Matrix projection = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45), 800f / 480f, 0.1f, 100f);
+
         Model model;
 
         Random random = new Random();
@@ -52,6 +57,7 @@ namespace MonogameShooter
         {
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
+
         }
 
 
@@ -103,29 +109,34 @@ namespace MonogameShooter
         {
             base.Update(gameTime, otherScreenHasFocus, false);
             /// Постепенное появление зависит от того, на что мы навели на экране Паузы
-            if (coveredByOtherScreen)
-                pauseAlpha = Math.Min(pauseAlpha + 1f / 32, 1);
-            else
-                pauseAlpha = Math.Max(pauseAlpha - 1f / 32, 0);
+            //if (coveredByOtherScreen)
+            //    pauseAlpha = Math.Min(pauseAlpha + 1f / 32, 1);
+            //else
+            //    pauseAlpha = Math.Max(pauseAlpha - 1f / 32, 0);
 
-            if (IsActive)
+            //if (IsActive)
+            //{
+            //    ///Добавляет !!!рандомного!!! :) дрожания, чтобы противник двигался
+            //    const float randomization = 10;
+
+            //    enemyPosition.X += (float)(random.NextDouble() - 0.5) * randomization;
+            //    enemyPosition.Y += (float)(random.NextDouble() - 0.5) * randomization
+
+
+            //}
+
+            foreach (ModelMesh mesh in model.Meshes)
             {
-                ///Добавляет !!!рандомного!!! :) дрожания, чтобы противник двигался
-                const float randomization = 10;
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.World = world;
+                    effect.View = view;
+                    effect.Projection = projection;
+                }
 
-                enemyPosition.X += (float)(random.NextDouble() - 0.5) * randomization;
-                enemyPosition.Y += (float)(random.NextDouble() - 0.5) * randomization;
-
-                ////Добавляем стабилизатор для того, чтобы противник не уходил за пределы экрана
-                //Vector3 targetPosition = new Vector3(
-                //    ScreenManager.GraphicsDevice.Viewport.Width / 2 - gameFont.MeasureString("Insert Gameplay Here").X / 2,
-                //    200);
-
-                //enemyPosition = Vector3.Lerp(enemyPosition, targetPosition, 0.05f);
-
-                // Эта игра не особо веселая. Вы можете улучшить ее
-                // добавив еще чего-нибудь
+                mesh.Draw();
             }
+
         }
 
 
