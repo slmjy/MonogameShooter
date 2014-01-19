@@ -148,5 +148,10 @@ namespace MonogameShooter
 
 
         #endregion
+
+        internal static void Load(MonogameShooter.ScreenManager ScreenManager, bool p, PlayerIndex playerIndex, HudScreen hudScreen)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -9,6 +9,8 @@
 
 #region Using Statements
 using Microsoft.Xna.Framework;
+using MonogameShooter.GameEngine;
+using Microsoft.Xna.Framework.Graphics;
 #endregion
 
 namespace MonogameShooter
@@ -66,6 +68,8 @@ namespace MonogameShooter
         /// <summary>
         void testMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
+            var player = new Player(Portrait, cm, HP, HPLeft, SP, SPLeft, Level, Name);
+            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new HudScreen(ScreenManager,player));
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new Test3DScreen());
         }
         /// <summary>
@@ -82,7 +86,7 @@ namespace MonogameShooter
         /// </summary>
         protected override void OnCancel(PlayerIndex playerIndex)
         {
-            const string message = "Вы точно хотите выйти из приложение?";
+            const string message = "Вы точно хотите выйти из приложения?";
 
             MessageBoxScreen confirmExitMessageBox = new MessageBoxScreen(message);
 
@@ -103,5 +107,15 @@ namespace MonogameShooter
 
 
         #endregion
+
+        public Microsoft.Xna.Framework.Graphics.Texture2D HP { get; set; }
+
+        public Microsoft.Xna.Framework.Content.ContentManager SP { get; set; }
+
+        public object HPleft { get; set; }
+
+        public object Lifes { get; set; }
+
+        public object HPLeft { get; set; }
     }
 }

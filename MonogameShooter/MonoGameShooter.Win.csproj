@@ -45,6 +45,7 @@
     <Compile Include="ScreenManager\ScreenManager.cs" />
     <Compile Include="Screens\BackgroundScreen.cs" />
     <Compile Include="Screens\GameplayScreen.cs" />
+    <Compile Include="Screens\HudScreen.cs" />
     <Compile Include="Screens\LoadingScreen.cs" />
     <Compile Include="Screens\MainMenuScreen.cs" />
     <Compile Include="Screens\MenuEntry.cs" />
@@ -71,8 +72,21 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Folder Include="obj\x86\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Background.png" />
+    <Content Include="bin\WindowsGL\Debug\Content\background.png" />
+    <Content Include="bin\WindowsGL\Debug\Content\blank.png" />
+    <Content Include="bin\WindowsGL\Debug\Content\gradient.png" />
+    <Content Include="bin\WindowsGL\Debug\Lidgren.Network.dll" />
+    <Content Include="bin\WindowsGL\Debug\MonoGame.Framework.dll" />
+    <Content Include="bin\WindowsGL\Debug\MonogameShooter.exe" />
+    <Content Include="bin\WindowsGL\Debug\MonogameShooter.pdb" />
+    <Content Include="bin\WindowsGL\Debug\MonogameShooter.vshost.exe" />
+    <Content Include="bin\WindowsGL\Debug\OpenTK.dll" />
+    <Content Include="bin\WindowsGL\Debug\Tao.Sdl.dll" />
     <Content Include="Content\2k.bmp" />
     <Content Include="Content\3a.BMP" />
     <Content Include="Content\6.BMP" />
@@ -99,9 +113,21 @@
     <Content Include="Content\Models\Maps\Unconverted\LUhamheadBUM.jpg" />
     <Content Include="Content\Models\Maps\Unconverted\LUhamspike.jpg" />
     <Content Include="Content\Models\Maps\Unconverted\LUmet1.jpg" />
+    <Content Include="Default.png" />
+    <Content Include="GameStateManagement.iOS.csproj" />
+    <Content Include="GameStateManagement.MacOS.csproj" />
+    <Content Include="obj\x86\Debug\MonogameShooter.exe" />
+    <Content Include="obj\x86\Debug\MonogameShooter.pdb" />
+    <Content Include="obj\x86\Debug\MonoGameShooter.Win.csproj.FileListAbsolute.txt" />
     <Content Include="SDL.dll" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\WindowsGL\Debug\Content\background.xnb" />
+    <None Include="bin\WindowsGL\Debug\Content\Fonts\gamefont.spritefont" />
+    <None Include="bin\WindowsGL\Debug\Content\Fonts\gamefont.xnb" />
+    <None Include="bin\WindowsGL\Debug\Content\Fonts\menufont.spritefont" />
+    <None Include="bin\WindowsGL\Debug\Content\Fonts\menufont.xnb" />
+    <None Include="bin\WindowsGL\Debug\MonogameShooter.vshost.exe.manifest" />
     <None Include="Content\background.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -134,6 +160,7 @@
     <None Include="Content\Models\TT-33.xnb" />
     <None Include="Content\Models\tt-vray.xnb" />
     <None Include="Content\Models\ТТ.xnb" />
+    <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

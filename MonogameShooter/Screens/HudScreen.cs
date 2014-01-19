@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using MonogameShooter.GameEngine;
 #endregion
 
 namespace MonogameShooter
@@ -83,7 +84,7 @@ namespace MonogameShooter
         /// <summary>
         /// СОздаем новый ХУД объект используя ScreenManager
         /// </summary>
-        public HudScreen(ScreenManager screenManager, GameEngine Player)
+        public HudScreen(ScreenManager screenManager, Player player)
         {
             // проверяем параметр
             if (screenManager == null)
@@ -92,6 +93,7 @@ namespace MonogameShooter
             }
             this.screenManager = screenManager;
         }
+
 
 
         /// <summary>
@@ -157,14 +159,14 @@ namespace MonogameShooter
 
             spriteBatch.Draw(backgroundHudTexture, backgroundHudPosition, Color.White);
             //нужен боевой движок
-            if (CombatEngine.IsActive)
-            {
-                DrawForCombat();
-            }
-            else
-            {
-                DrawForNonCombat();
-            }
+            //if (CombatEngine.IsActive)
+            //{
+            //    DrawForCombat();
+            //}
+            //else
+            //{
+            //    DrawForNonCombat();
+            //}
 
             spriteBatch.End();
         }
@@ -178,31 +180,31 @@ namespace MonogameShooter
             SpriteBatch spriteBatch = screenManager.SpriteBatch;
             Vector2 position = startingInfoPosition;
 // и тут
-            foreach (CombatantPlayer combatantPlayer in CombatEngine.Players)
-            {
-                DrawCombatPlayerDetails(combatantPlayer, position);
-                position.X += activeCharInfoTexture.Width - 6f;
-            }
+            //foreach (CombatantPlayer combatantPlayer in CombatEngine.Players)
+            //{
+            //    DrawCombatPlayerDetails(combatantPlayer, position);
+            //    position.X += activeCharInfoTexture.Width - 6f;
+            //}
 
             charSelLeftPosition.X = startingInfoPosition.X - 5f -
                 charSelArrowLeftTexture.Width;
             charSelRightPosition.X = position.X + 5f;
             // Рисует стрелки выбора персонажа
             // и тут движок
-            if (CombatEngine.IsPlayersTurn)
-            {
-                spriteBatch.Draw(charSelArrowLeftTexture, charSelLeftPosition,
-                    Color.White);
-                spriteBatch.Draw(charSelArrowRightTexture, charSelRightPosition,
-                    Color.White);
-            }
-            else
-            {
-                spriteBatch.Draw(charSelFadeLeftTexture, charSelLeftPosition,
-                    Color.White);
-                spriteBatch.Draw(charSelFadeRightTexture, charSelRightPosition,
-                    Color.White);
-            }
+            //if (CombatEngine.IsPlayersTurn)
+            //{
+            //    spriteBatch.Draw(charSelArrowLeftTexture, charSelLeftPosition,
+            //        Color.White);
+            //    spriteBatch.Draw(charSelArrowRightTexture, charSelRightPosition,
+            //        Color.White);
+            //}
+            //else
+            //{
+            //    spriteBatch.Draw(charSelFadeLeftTexture, charSelLeftPosition,
+            //        Color.White);
+            //    spriteBatch.Draw(charSelFadeRightTexture, charSelRightPosition,
+            //        Color.White);
+            //}
 
             if (actionText.Length > 0)
             {
@@ -255,7 +257,7 @@ namespace MonogameShooter
         /// </summary>
         /// <param name="playerIndex">Показатель детлей о игроке, которые нужно отрисовать</param>
         /// <param name="position">Место где прорисовать</param>
-        private void DrawCombatPlayerDetails(CombatantPlayer player, Vector2 position)
+        private void DrawCombatPlayerDetails(Player player, Vector2 position)
         {
             SpriteBatch spriteBatch = screenManager.SpriteBatch;
 
@@ -279,32 +281,32 @@ namespace MonogameShooter
             position.X -= 2;
             position.Y -= 4;
 
-            if (player.IsTurnTaken)
-            {
-                plankState = PlankState.CantUse;
+            //if (player.IsTurnTaken)
+            //{
+            //    plankState = PlankState.CantUse;
 
-                isPortraitActive = false;
-            }
-            else
-            {
-                plankState = PlankState.InActive;
+            //    isPortraitActive = false;
+            //}
+            //else
+            //{
+            //    plankState = PlankState.InActive;
 
-                isPortraitActive = true;
-            }
+            //    isPortraitActive = true;
+            //}
             //движоок
-            if (((CombatEngine.HighlightedCombatant == player) && !player.IsTurnTaken) ||
-                (CombatEngine.PrimaryTargetedCombatant == player) ||
-                (CombatEngine.SecondaryTargetedCombatants.Contains(player)))
-            {
-                plankState = PlankState.Active;
-            }
+            //if (((CombatEngine.HighlightedCombatant == player) && !player.IsTurnTaken) ||
+            //   (CombatEngine.PrimaryTargetedCombatant == player) ||
+            //  (CombatEngine.SecondaryTargetedCombatants.Contains(player)))
+            // {
+            // plankState = PlankState.Active;
+            //}
 
-            if (player.IsDeadOrDying)
-            {
-                isCharDead = true;
-                isPortraitActive = false;
-                plankState = PlankState.CantUse;
-            }
+            //if (player.IsDeadOrDying)
+            //{
+            //    isCharDead = true;
+            //    isPortraitActive = false;
+            //    plankState = PlankState.CantUse;
+            //}
 
             // Рисует информационную плитку
             if (plankState == PlankState.Active)
@@ -314,67 +316,67 @@ namespace MonogameShooter
                 spriteBatch.Draw(activeCharInfoTexture, position, Color.White);
 
                 // Рисует скобки
-                if ((CombatEngine.HighlightedCombatant == player) && !player.IsTurnTaken)
+                // if ((CombatEngine.HighlightedCombatant == player) && !player.IsTurnTaken)
+                // {
+                //      spriteBatch.Draw(selectionBracketTexture, position, Color.White);
+                //  }
+
+                //if (isPortraitActive &&
+                //    (CombatEngine.HighlightedCombatant == player) &&
+                //    (CombatEngine.HighlightedCombatant.CombatAction == null) &&
+                //    !CombatEngine.IsDelaying)
+                //{
+                //        position.X += activeCharInfoTexture.Width / 2;
+                //        position.X -= combatPopupTexture.Width / 2;
+                //        position.Y -= combatPopupTexture.Height;
+                //        // Рисует действие
+                //        DrawActionsMenu(position);
+                //    }
+                //}
+                //else if (plankState == PlankState.InActive)
+                //{
+                //    color = inActiveNameColor;
+                //    spriteBatch.Draw(inActiveCharInfoTexture, position, Color.White);
+                //}
+                //else
+                //{
+                //    color = Color.Black;
+                //    spriteBatch.Draw(cantUseCharInfoTexture, position, Color.White);
+                //}
+
+                if (isCharDead)
                 {
-                    spriteBatch.Draw(selectionBracketTexture, position, Color.White);
+                    spriteBatch.Draw(deadPortraitTexture, portraitPosition, Color.White);
+                }
+                else
+                {
+                    // Рисует портрет игрока
+                    DrawPortrait(player, portraitPosition, plankState);
                 }
 
-                if (isPortraitActive &&
-                    (CombatEngine.HighlightedCombatant == player) &&
-                    (CombatEngine.HighlightedCombatant.CombatAction == null) &&
-                    !CombatEngine.IsDelaying)
-                {
-                    position.X += activeCharInfoTexture.Width / 2;
-                    position.X -= combatPopupTexture.Width / 2;
-                    position.Y -= combatPopupTexture.Height;
-                    // Рисует действие
-                    DrawActionsMenu(position);
-                }
-            }
-            else if (plankState == PlankState.InActive)
-            {
-                color = inActiveNameColor;
-                spriteBatch.Draw(inActiveCharInfoTexture, position, Color.White);
-            }
-            else
-            {
+                // Рисует имя игрока
+                spriteBatch.DrawString(Fonts.PlayerStatisticsFont,
+                    player.Name,
+                    namePosition, color);
+
                 color = Color.Black;
-                spriteBatch.Draw(cantUseCharInfoTexture, position, Color.White);
+                // РИсует детали о игроке
+                spriteBatch.DrawString(Fonts.HudDetailFont,
+                    "Lvl: " + player.Level,
+                    levelPosition, color);
+
+                spriteBatch.DrawString(Fonts.HudDetailFont,
+                    "HP: " + player.HP +
+                    "/" + player.HPLeft,
+                    detailPosition, color);
+
+                detailPosition.Y += 30f;
+                spriteBatch.DrawString(Fonts.HudDetailFont,
+                    "SP: " + player.SP +
+                    "/" + player.SPLeft,
+                    detailPosition, color);
             }
-
-            if (isCharDead)
-            {
-                spriteBatch.Draw(deadPortraitTexture, portraitPosition, Color.White);
-            }
-            else
-            {
-                // Рисует портрет игрока
-                DrawPortrait(player.Player, portraitPosition, plankState);
-            }
-
-            // Рисует имя игрока
-            spriteBatch.DrawString(Fonts.PlayerStatisticsFont,
-                player.Player.Name,
-                namePosition, color);
-
-            color = Color.Black;
-            // РИсует детали о игроке
-            spriteBatch.DrawString(Fonts.HudDetailFont,
-                "Lvl: " + player.Player.CharacterLevel,
-                levelPosition, color);
-
-            spriteBatch.DrawString(Fonts.HudDetailFont,
-                "HP: " + player.Statistics.HealthPoints +
-                "/" + player.Player.CharacterStatistics.HealthPoints,
-                detailPosition, color);
-
-            detailPosition.Y += 30f;
-            spriteBatch.DrawString(Fonts.HudDetailFont,
-                "SP: " + player.Statistics.StaminaPoints +
-                "/" + player.Player.CharacterStatistics.MagicPoints,
-                detailPosition, color);
-        }
-
+        
 
         /// <summary>
         /// Рисует детали о ироке
@@ -442,18 +444,18 @@ namespace MonogameShooter
             color = Color.Black;
             // и детали.
             spriteBatch.DrawString(Fonts.HudDetailFont,
-                "Lvl: " + player.CharacterLevel,
+                "Lvl: " + player.Level,
                 levelPosition, color);
 
             spriteBatch.DrawString(Fonts.HudDetailFont,
-                "HP: " + player.CurrentStatistics.HealthPoints +
-                "/" + player.CharacterStatistics.HealthPoints,
+                "HP: " + player.HP +
+                "/" + player.HP,
                 detailPosition, color);
 
             detailPosition.Y += 30f;
             spriteBatch.DrawString(Fonts.HudDetailFont,
-                "MP: " + player.CurrentStatistics.MagicPoints +
-                "/" + player.CharacterStatistics.MagicPoints,
+                "MP: " + player.SP +
+                "/" + player.SPLeft,
                 detailPosition, color);
         }
 
@@ -467,17 +469,17 @@ namespace MonogameShooter
             switch (plankState)
             {
                 case PlankState.Active:
-                    screenManager.SpriteBatch.Draw(player.ActivePortraitTexture,
+                    screenManager.SpriteBatch.Draw(player.Portrait,
                         position, Color.White);
                     break;
-                case PlankState.InActive:
-                    screenManager.SpriteBatch.Draw(player.InactivePortraitTexture,
-                        position, Color.White);
-                    break;
-                case PlankState.CantUse:
-                    screenManager.SpriteBatch.Draw(player.UnselectablePortraitTexture,
-                        position, Color.White);
-                    break;
+                //case PlankState.InActive:
+                //    screenManager.SpriteBatch.Draw(player.InactivePortraitTexture,
+                //        position, Color.White);
+                   // break;
+                //case PlankState.CantUse:
+                //    screenManager.SpriteBatch.Draw(player.UnselectablePortraitTexture,
+                //        position, Color.White);
+                //    break;
             }
         }
 
@@ -485,65 +487,65 @@ namespace MonogameShooter
         #endregion
 
 
-        #region Меню Боевых Действий (МБД)
+     #region Меню Боевых Действий (МБД)
 
 
-        /// <summary>
-        /// Список элементов в мбд
-        /// </summary>
-        private string[] actionList = new string[5]
-            {
-                "Стрелять",
-                "Перезарядка",
-                "Сменить оружие",
-                "Параметр1",
-                "Параметр2",
-            };
+        ///// <summary>
+        ///// Список элементов в мбд
+        ///// </summary>
+        //private string[] actionList = new string[5]
+        //    {
+        //        "Стрелять",
+        //        "Перезарядка",
+        //        "Сменить оружие",
+        //        "Параметр1",
+        //        "Параметр2",
+        //    };
 
 
-        /// <summary>
-        /// Выделенный сейчас предмет.
-        /// </summary>
-        private int highlightedAction = 0;
+        ///// <summary>
+        ///// Выделенный сейчас предмет.
+        ///// </summary>
+        //private int highlightedAction = 0;
 
 
         /// <summary>
         /// Делаем выбор пользователя в меню действий
         /// </summary>
-        public void UpdateActionsMenu()
-        {
-            // курсор вверх
-            if (InputManager.IsActionTriggered(InputManager.Action.CursorUp))
-            {
-                if (highlightedAction > 0)
-                {
-                    highlightedAction--;
-                }
-                return;
-            }
-            // курсор вниз
-            if (InputManager.IsActionTriggered(InputManager.Action.CursorDown))
-            {
-                if (highlightedAction < actionList.Length - 1)
-                {
-                    highlightedAction++;
-                }
-                return;
-            }
-            // выбор действияя
-            if (InputManager.IsActionTriggered(InputManager.Action.Ok))
-            {
-                switch (actionList[highlightedAction])
-                {
-                    case "Стрелять":
-                        {
-                            ActionText = "Начинаем стрелять";
-                            CombatEngine.HighlightedCombatant.CombatAction =
-                                new RangedCombatAction(CombatEngine.HighlightedCombatant);
-                            CombatEngine.HighlightedCombatant.CombatAction.Target =
-                                CombatEngine.FirstEnemyTarget;
-                        }
-                        break;
+        //public void UpdateActionsMenu()
+        //{
+        //    // курсор вверх
+        //    if (InputManager.IsActionTriggered(InputManager.Action.CursorUp))
+        //    {
+        //        if (highlightedAction > 0)
+        //        {
+        //            highlightedAction--;
+        //        }
+        //        return;
+        //    }
+        //    // курсор вниз
+        //    if (InputManager.IsActionTriggered(InputManager.Action.CursorDown))
+        //    {
+        //        if (highlightedAction < actionList.Length - 1)
+        //        {
+        //            highlightedAction++;
+        //        }
+        //        return;
+        //    }
+        //    // выбор действияя
+        //    if (InputManager.IsActionTriggered(InputManager.Action.Ok))
+        //    {
+        //        switch (actionList[highlightedAction])
+        //        {
+        //            case "Стрелять":
+        //                {
+        //                    ActionText = "Начинаем стрелять";
+        //                    CombatEngine.HighlightedCombatant.CombatAction =
+        //                        new RangedCombatAction(CombatEngine.HighlightedCombatant);
+        //                    CombatEngine.HighlightedCombatant.CombatAction.Target =
+        //                        CombatEngine.FirstEnemyTarget;
+        //                }
+        //                break;
 
                     //case "Перезарядка":
                     //    {
@@ -569,46 +571,46 @@ namespace MonogameShooter
                     //    }
                     //    break;
 
-                }
-                return;
-            }
-        }
+        //        }
+        //        return;
+        //    }
+        //}
 
 
         /// <summary>
         /// Рисуем меню боевых действий
         /// </summary>
         /// <param name="position">The position of the menu.</param>
-        private void DrawActionsMenu(Vector2 position)
-        {
-            ActionText = "Выберите действие";
+        //private void DrawActionsMenu(Vector2 position)
+        //{
+        //    ActionText = "Выберите действие";
 
-            SpriteBatch spriteBatch = screenManager.SpriteBatch;
+        //    SpriteBatch spriteBatch = screenManager.SpriteBatch;
 
-            Vector2 arrowPosition;
-            float height = 25f;
+        //    Vector2 arrowPosition;
+        //    float height = 25f;
 
-            spriteBatch.Draw(combatPopupTexture, position, Color.White);
+        //    spriteBatch.Draw(combatPopupTexture, position, Color.White);
 
-            position.Y += 21f;
-            arrowPosition = position;
+        //    position.Y += 21f;
+        //    arrowPosition = position;
 
-            arrowPosition.X += 10f;
-            arrowPosition.Y += 2f;
-            arrowPosition.Y += height * (int)highlightedAction;
-            spriteBatch.Draw(actionTexture, arrowPosition, Color.White);
+        //    arrowPosition.X += 10f;
+        //    arrowPosition.Y += 2f;
+        //    arrowPosition.Y += height * (int)highlightedAction;
+        //    spriteBatch.Draw(actionTexture, arrowPosition, Color.White);
 
-            position.Y += 4f;
-            position.X += 50f;
+        //    position.Y += 4f;
+        //    position.X += 50f;
 
-            // Рисуем текст действия
-            for (int i = 0; i < actionList.Length; i++)
-            {
-                spriteBatch.DrawString(Fonts.GearInfoFont, actionList[i], position,
-                    i == highlightedAction ? selColor : nonSelColor);
-                position.Y += height;
-            }
-        }
+        //    // Рисуем текст действия
+        //    for (int i = 0; i < actionList.Length; i++)
+        //    {
+        //        spriteBatch.DrawString(Fonts.GearInfoFont, actionList[i], position,
+        //            i == highlightedAction ? selColor : nonSelColor);
+        //        position.Y += height;
+        //    }
+        //}
 
 
         #endregion
