@@ -29,7 +29,8 @@ namespace MonogameShooter
 
         ContentManager content;
         SpriteFont gameFont;
-        
+
+        Vector3 position = new Vector3(0, 0.01f, 0);
         Vector3 playerPosition = new Vector3(100, 100 ,100);
         Vector3 enemyPosition = new Vector3(100, 100, 100);
 
@@ -63,6 +64,8 @@ namespace MonogameShooter
                 content = new ContentManager(ScreenManager.Game.Services, "Content");
 
             gameFont = content.Load<SpriteFont>("Fonts/gamefont");
+
+            model = content.Load<Model>("");
 
             // A real game would probably have more content than this sample, so
             // it would take longer to load. We simulate that by delaying for a
