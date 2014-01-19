@@ -122,6 +122,9 @@
     <None Include="Content\Models\blank.xnb" />
     <None Include="Content\Models\F1.xnb" />
     <None Include="Content\Models\gradient.xnb" />
+    <None Include="Content\Models\Guns\GUN.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Content\Models\Loft_Lights_Lrg.hdr" />
     <None Include="Content\Models\Magazine.xnb" />
     <None Include="Content\Models\Maps\Unconverted\DH101LL.hdr" />
