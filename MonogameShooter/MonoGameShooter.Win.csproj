@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="Game.cs" />
     <Compile Include="GameEngine\Player.cs" />
+    <Compile Include="GameEngine\Weapon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScreenManager\GameScreen.cs" />
@@ -73,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\HUD\" />
     <Folder Include="obj\x86\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>

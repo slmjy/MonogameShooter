@@ -10,22 +10,35 @@ namespace MonogameShooter.GameEngine
 {
 
 
-    class Player
+    public class Player
     {
 
-        public int HP = 100, HPLeft, SP = 100, SPLeft, Level = 1;
-        public string Name;
-        public Texture2D Portrait;
-        ContentManager content;
-        public PlayerIndex ? playerIndex;
+        public int HP { get; set; }
+        public int HPLeft { get; set; }
+        public int SP { get; set; }
+        public int SPLeft { get; set; }
+        public int Level { get; set; }
+        public string Name  { get; set; }
+        public Texture2D Portrait { get; set; }
+        ContentManager content { get; set; }
+        public PlayerIndex? playerIndex { get; set; }
 
          
       
 
-        public Player(Texture2D Portrait, ContentManager cm, int HP, int HPLeft, int SP, int SPLeft, int Level, string Name)
+        public Player(Texture2D Portrait, ContentManager cm, int HP = 100, int HPLeft = 100, int SP = 10, int SPLeft = 10, int Level = 1, string Name = "Player")
         {
             if (Portrait == null)
                 Portrait = cm.Load<Texture2D>("portrait.jpg");
+
+           this.Portrait = Portrait;
+           this.content = cm;
+           this.HP = HP;
+           this.HPLeft = HPLeft;
+           this.SP = SP;
+           this.SPLeft = SPLeft;
+           this.Level = Level;
+           this.Name = Name;
             
         }
 
