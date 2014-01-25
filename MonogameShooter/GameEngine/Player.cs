@@ -23,14 +23,21 @@ namespace MonogameShooter.GameEngine
         ContentManager content { get; set; }
         public PlayerIndex? playerIndex { get; set; }
 
-         
-      
+        public List<Weapon> weapons = new List<Weapon>();
+        public Weapon currentWeapon;
 
-        public Player(Texture2D Portrait, ContentManager cm, int HP = 100, int HPLeft = 100, int SP = 10, int SPLeft = 10, int Level = 1, string Name = "Player")
+        public Player(Weapon weapon, Texture2D Portrait, ContentManager cm, int HP = 100, int HPLeft = 100, int SP = 10, int SPLeft = 10, int Level = 1, string Name = "Player")
         {
             if (Portrait == null)
                 Portrait = cm.Load<Texture2D>("portrait.jpg");
 
+            if(weapons == null)
+                    currentWeapon = new Weapon(cm.Load<Texture2D>("default_gun.jpg"), cm, 100, 20, "Gun");
+
+
+            weapons.Add(currentWeapon);
+            
+            
            this.Portrait = Portrait;
            this.content = cm;
            this.HP = HP;
@@ -39,18 +46,12 @@ namespace MonogameShooter.GameEngine
            this.SPLeft = SPLeft;
            this.Level = Level;
            this.Name = Name;
-            
+
+          
+
         }
 
       
 
-        //public Player(Texture2D HP_2, ContentManager SP_2, object HPLeft_2, object Lifes)
-        //{
-        //    // TODO: Complete member initialization
-        //    this.HP_2 = HP_2;
-        //    this.SP_2 = SP_2;
-        //    this.HPLeft_2 = HPLeft_2;
-        //    this.Lifes = Lifes;
-        //}
     }
 }
