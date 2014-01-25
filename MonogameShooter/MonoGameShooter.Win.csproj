@@ -120,6 +120,9 @@
     <Content Include="Content\Models\Maps\Unconverted\LUhamheadBUM.jpg" />
     <Content Include="Content\Models\Maps\Unconverted\LUhamspike.jpg" />
     <Content Include="Content\Models\Maps\Unconverted\LUmet1.jpg" />
+    <Content Include="Content\portrait.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Default.png" />
     <Content Include="GameStateManagement.iOS.csproj" />
     <Content Include="GameStateManagement.MacOS.csproj" />
