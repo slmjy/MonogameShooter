@@ -161,7 +161,7 @@ namespace MonogameShooter
             SpriteBatch spriteBatch = screenManager.SpriteBatch;
             SpriteFont font = screenManager.Font;
 
-            Vector2 origin = new Vector2(0, font.LineSpacing / 2);
+            Vector2 origin = new Vector2(0, 20 / 2);
 
             spriteBatch.DrawString(font, text, position, color, 0,
                                    origin, scale, SpriteEffects.None, 0);
@@ -173,7 +173,8 @@ namespace MonogameShooter
         /// </summary>
         public virtual int GetHeight(MenuScreen screen)
         {
-            return screen.ScreenManager.Font.LineSpacing;
+            //return screen.ScreenManager.Font.LineSpacing;
+            return 10;
         }
 
 
@@ -182,7 +183,8 @@ namespace MonogameShooter
         /// </summary>
         public virtual int GetWidth(MenuScreen screen)
         {
-            return (int)screen.ScreenManager.Font.MeasureString(Text).X;
+            //return (int)screen.ScreenManager.Font.MeasureString(Text).X;
+            return 10;
         }
 
 

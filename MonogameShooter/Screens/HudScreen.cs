@@ -59,6 +59,8 @@ namespace MonogameShooter
         private readonly Color nonSelColor = new Color(86, 26, 5);
         private readonly Color selColor = new Color(229, 206, 144);
 
+        private SpriteFont HudFont;
+
 
         #endregion
 
@@ -137,6 +139,8 @@ namespace MonogameShooter
                 content.Load<Texture2D>(@"Textures\HUD\Menu");
             statsTexture =
                 content.Load<Texture2D>(@"Textures\HUD\Stats");
+
+            HudFont = content.Load<SpriteFont>(@"Fonts\gamefont");
         }
 
 
@@ -210,8 +214,9 @@ namespace MonogameShooter
             {
                 spriteBatch.Draw(topHudTexture, topHudPosition, Color.White);
                 // Русует текст действия
-                Fonts.DrawCenteredText(spriteBatch, Fonts.PlayerStatisticsFont,
-                    actionText, actionTextPosition, Color.Black);
+                //Fonts.DrawCenteredText(spriteBatch, Fonts.PlayerStatisticsFont,
+                //    actionText, actionTextPosition, Color.Black);
+                spriteBatch.DrawString(HudFont, actionText, actionTextPosition, Color.Black);
                 //непонял откуда ошибка
             }
         }
@@ -261,7 +266,7 @@ namespace MonogameShooter
         {
             SpriteBatch spriteBatch = screenManager.SpriteBatch;
 
-            PlankState plankState;
+            PlankState plankState = new PlankState();
             bool isPortraitActive = false;
             bool isCharDead = false;
             Color color;
@@ -355,27 +360,28 @@ namespace MonogameShooter
                 }
 
                 // Рисует имя игрока
-                spriteBatch.DrawString(Fonts.PlayerStatisticsFont,
+                spriteBatch.DrawString(HudFont,
                     player.Name,
                     namePosition, color);
 
                 color = Color.Black;
                 // РИсует детали о игроке
-                spriteBatch.DrawString(Fonts.HudDetailFont,
+                spriteBatch.DrawString(HudFont,
                     "Lvl: " + player.Level,
                     levelPosition, color);
 
-                spriteBatch.DrawString(Fonts.HudDetailFont,
+                spriteBatch.DrawString(HudFont,
                     "HP: " + player.HP +
                     "/" + player.HPLeft,
                     detailPosition, color);
 
                 detailPosition.Y += 30f;
-                spriteBatch.DrawString(Fonts.HudDetailFont,
+                spriteBatch.DrawString(HudFont,
                     "SP: " + player.SP +
                     "/" + player.SPLeft,
                     detailPosition, color);
             }
+        }
         
 
         /// <summary>
@@ -437,23 +443,23 @@ namespace MonogameShooter
             }
 
             // имя,
-            spriteBatch.DrawString(Fonts.PlayerStatisticsFont,
+            spriteBatch.DrawString(HudFont,
                 player.Name,
                 namePosition, color);
 
             color = Color.Black;
             // и детали.
-            spriteBatch.DrawString(Fonts.HudDetailFont,
+            spriteBatch.DrawString(HudFont,
                 "Lvl: " + player.Level,
                 levelPosition, color);
 
-            spriteBatch.DrawString(Fonts.HudDetailFont,
+            spriteBatch.DrawString(HudFont,
                 "HP: " + player.HP +
                 "/" + player.HP,
                 detailPosition, color);
 
             detailPosition.Y += 30f;
-            spriteBatch.DrawString(Fonts.HudDetailFont,
+            spriteBatch.DrawString(HudFont,
                 "MP: " + player.SP +
                 "/" + player.SPLeft,
                 detailPosition, color);
