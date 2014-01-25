@@ -14,6 +14,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonogameShooter.Engine;
 #endregion
 
 namespace MonogameShooter
@@ -26,6 +27,8 @@ namespace MonogameShooter
     class Test3DScreen : GameScreen
     {
         #region Fields
+
+        MyEngine engine;
 
         ContentManager content;
         SpriteFont gameFont;
@@ -62,6 +65,7 @@ namespace MonogameShooter
         {
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
+            engine = new MyEngine(new Player(0,0,0,new OpenTK.Vector3(10,10,10)));
 
         }
 
@@ -131,23 +135,6 @@ namespace MonogameShooter
 
             //}
 
-            foreach (ModelMesh mesh in model.Meshes)
-            {
-                foreach (BasicEffect effect in mesh.Effects)
-                {
-                    effect.EnableDefaultLighting();
-                    effect.World = world;
-                    effect.View = view;
-                    effect.Projection = projection;
-                    effect.LightingEnabled = true; // turn on the lighting subsystem.
-                    effect.DirectionalLight0.DiffuseColor = new Vector3(100, 100, 100); // a red light
-                    effect.DirectionalLight0.Direction = new Vector3(0, 10, 100); // coming along the x-axis
-                    effect.DirectionalLight0.SpecularColor = new Vector3(100, 100, 100); // with green highlights
-                    effect.AmbientLightColor = new Vector3(0.2f, 0.2f, 0.2f);
-                    effect.EmissiveColor = new Vector3(1, 1, 1);                }
-
-                mesh.Draw();
-            }
 
         }
 
@@ -191,22 +178,22 @@ namespace MonogameShooter
                 Vector2 movement = Vector2.Zero;
 
                 if (keyboardState.IsKeyDown(Keys.Q))
-                    cameraPosition.X++;
+                    engine._currentPlayer.ViewPoint.X++;
 
                 if (keyboardState.IsKeyDown(Keys.A))
-                    cameraPosition.X--;
+                    engine._currentPlayer.ViewPoint.X--;
 
                 if (keyboardState.IsKeyDown(Keys.W))
-                    cameraPosition.Y++;
+                    engine._currentPlayer.ViewPoint.Y++;
 
                 if (keyboardState.IsKeyDown(Keys.S))
-                    cameraPosition.Y--;
+                    engine._currentPlayer.ViewPoint.Y--;
 
                 if (keyboardState.IsKeyDown(Keys.E))
-                    cameraPosition.Z++;
+                    engine._currentPlayer.ViewPoint.Z++;
 
                 if (keyboardState.IsKeyDown(Keys.D))
-                    cameraPosition.Z--;
+                    engine._currentPlayer.ViewPoint.Z--;
 
 
 
@@ -214,23 +201,23 @@ namespace MonogameShooter
 
 
                 if (keyboardState.IsKeyDown(Keys.R))
-                    cameraTarget.X++;
+                    engine._currentPlayer.ViewTarget.X++;
 
 
                 if (keyboardState.IsKeyDown(Keys.F))
-                    cameraTarget.X--;
+                    engine._currentPlayer.ViewTarget.X--;
 
                 if (keyboardState.IsKeyDown(Keys.T))
-                    cameraTarget.Y++;
+                    engine._currentPlayer.ViewTarget.Y++;
 
                 if (keyboardState.IsKeyDown(Keys.G))
-                    cameraTarget.Y--;
+                    engine._currentPlayer.ViewTarget.Y--;
 
                 if (keyboardState.IsKeyDown(Keys.Y))
-                    cameraTarget.Z++;
+                    engine._currentPlayer.ViewTarget.Z++;
 
                 if (keyboardState.IsKeyDown(Keys.H))
-                    cameraTarget.Z--;
+                    engine._currentPlayer.ViewTarget.Z--;
 
                 Vector2 thumbstick = gamePadState.ThumbSticks.Left;
 
@@ -259,13 +246,28 @@ namespace MonogameShooter
 
             spriteBatch.Begin();
 
-            //spriteBatch.DrawString(gameFont, "// TODO", playerPosition, Color.Green);
 
-            //spriteBatch.DrawString(gameFont, "Insert Gameplay Here",
-            //                       enemyPosition, Color.DarkRed);
+            foreach (ModelMesh mesh in model.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.EnableDefaultLighting();
+                    effect.World = world;
+                    effect.View = view;
+                    effect.Projection = projection;
+                    effect.LightingEnabled = true; // turn on the lighting subsystem.
+                    effect.DirectionalLight0.DiffuseColor = new Vector3(100, 100, 100); // a red light
+                    effect.DirectionalLight0.Direction = new Vector3(0, 10, 100); // coming along the x-axis
+                    effect.DirectionalLight0.SpecularColor = new Vector3(100, 100, 100); // with green highlights
+                    effect.AmbientLightColor = new Vector3(0.2f, 0.2f, 0.2f);
+                    effect.EmissiveColor = new Vector3(1, 1, 1);
+                }
 
+                mesh.Draw();
+            }
             
-            model.Draw(world, view, projection);
+          //  model.Draw(world, view, projection);
+
 
 
             spriteBatch.DrawString(gameFont, "X: " + cameraPosition.X.ToString() + " Y: " + cameraPosition.Y.ToString() + " Z: " + cameraPosition.Z.ToString(), new Vector2(0, 0), Color.White);
@@ -273,6 +275,7 @@ namespace MonogameShooter
             
 
             spriteBatch.End();
+
 
             /// Если игра включается или выключается, проявим ее из черного
             if (TransitionPosition > 0 || pauseAlpha > 0)
