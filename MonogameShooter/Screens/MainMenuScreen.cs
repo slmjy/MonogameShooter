@@ -70,8 +70,9 @@ namespace MonogameShooter
         void testMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
             var player = new Player(null, new ContentManager(ScreenManager.Game.Services, "Content"),100,100,10,10,1,"TestPlayer");
-            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new HudScreen(ScreenManager,player));
-            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new Test3DScreen());
+            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
+                new GameScreen[] { new HudScreen(ScreenManager, player)  });
+  
         }
         /// <summary>
         /// Событие обработчика, если выбран компонент меню Опции.
